@@ -26,3 +26,27 @@ several applications of deeplearning for communication applications have
 been considered, including decoding signals over fading channels, but the
 architecture purposed there does not seem to be scalable for higher
 dimension signals.
+<br />
+- Coding steps:
+<br />we formulate the MIMO detection problem in a machine learning
+framework. We consider the standard linear MIMO model:
+
+                      y = Hx + w (1)
+
+We assume perfect channel state information (CSI) and that the channel H
+is exactly known. However, we differentiatebetween two possible cases:
+Fixed Channel (FC): In the FC scenario, H is deterministic and constant (or a realization of a degenerate distribution which only takes a single value).
+Varying Channel (VC): In the VC scenario, we assume H random with a
+known distribution. Our goal is to detect x, using an algorithm that receives
+y and H as inputs and estimates ^x.
+To find the best detector, we fix a loss function (x; ^x (H; y)) that
+measures the distance between the true symbols and their estimates. Then,
+we find  by minimizing the loss function we chose over the MIMO model
+distribution:
+
+                  min{Efl (x; ^x(H; y))g } (2)
+
+ - method 1 : The goal in detection is to decrease the probability of
+error. Therefore, the best loss function in this problem is choosing an
+unrealistically flexible architecture with unbounded
+parameterization and no restrictions such that
